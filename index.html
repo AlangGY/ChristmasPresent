@@ -23,6 +23,8 @@
                 padding: 30px;
                 border: black solid 2.5px;
                 margin-bottom: 5px;
+                font-weight: bold;
+                font-size: 20px;
             }
             #shuffleandshow {
                 border: black solid 2.5px;
@@ -65,27 +67,38 @@
         <script>
             let present=[];
             
+
+            var inputsound = new Audio();
+            inputsound.src = "Sound/uiclick.wav";
             function input(){
                 let input = document.getElementById('registertext').value;
+
                 present.push(input);
+                inputsound.play();
                 alert('등록완료!');
-                document.getElementById('registertext').value= '';    
+                document.getElementById('registertext').value= '';
+                 
             }
             var shufflesound = new Audio();
-            shufflesound.src = "tile shuffle.wav";
+            shufflesound.src = "Sound/tile shuffle.wav";
             
             function shuffle(array){
                 for (let i = array.length -1; i>0;i--){
                     let j = Math.floor(Math.random()*(i+1));
                     [array[i],array[j]]=[array[j],array[i]];
                 }
+                shufflesound.play();
+                alert('선물이 섞였습니다!')
             }
-
+            
+            var displaysound = new Audio();
+            displaysound.src ="Sound/announce.wav"
             function display_array(array){
                 var e = "<hr/>";
                 for (var y=0; y<array.length;y++){
                     e += "선물 " + y + "번 : " + array[y] + "<br/>";
                 }
+                displaysound.play();
                 alert('공개합니다!')
                 document.getElementById("Result").innerHTML = e;
                 }
@@ -125,8 +138,6 @@
             <input id="shufflebutton" class="button button3"
             value="섞어섞어!" type="button" onclick="
             shuffle(present);
-            shufflesound.play();
-            alert('선물이 섞였습니다!')
             ">
         </div>
         <div id="show">
