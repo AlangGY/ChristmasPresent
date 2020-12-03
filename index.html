@@ -69,7 +69,7 @@
             
 
             var inputsound = new Audio();
-            inputsound.src = "Sound/uiclick.wav";
+            inputsound.src = "uiclick.wav";
             function input(){
                 let input = document.getElementById('registertext').value;
 
@@ -80,7 +80,7 @@
                  
             }
             var shufflesound = new Audio();
-            shufflesound.src = "Sound/tile shuffle.wav";
+            shufflesound.src = "tile shuffle.wav";
             
             function shuffle(array){
                 for (let i = array.length -1; i>0;i--){
@@ -92,7 +92,7 @@
             }
             
             var displaysound = new Audio();
-            displaysound.src ="Sound/announce.wav"
+            displaysound.src ="announce.wav"
             function display_array(array){
                 var e = "<hr/>";
                 for (var y=0; y<array.length;y++){
