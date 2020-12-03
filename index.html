@@ -6,15 +6,27 @@
         <style>
             #headline h1 {
                 text-align: center;
-                border: red solid 5px;
+                border: red solid 3px;
                 font-size:80px;
                 background-color: rgb(24, 156, 24);
                 background-clip: border-box;
 
             }
+            #instruction {
+                padding: 30px;
+                border: black solid 2.5px;
+                margin-bottom: 5px;
+                font-weight: bolder;
+
+            }
             #register {
                 padding: 30px;
-                border: black solid 1px;
+                border: black solid 2.5px;
+                margin-bottom: 5px;
+            }
+            #shuffleandshow {
+                border: black solid 2.5px;
+
             }
             #shuffle {
                 padding: 30px;
@@ -57,7 +69,7 @@
                 let input = document.getElementById('registertext').value;
                 present.push(input);
                 alert('등록완료!');
-                    
+                document.getElementById('registertext').value= '';    
             }
             
             function shuffle(array){
@@ -71,6 +83,7 @@
                 for (var y=0; y<array.length;y++){
                     e += "선물 " + y + "번 : " + array[y] + "<br/>";
                 }
+                alert('공개합니다!')
                 document.getElementById("Result").innerHTML = e;
                 }
 
@@ -83,6 +96,13 @@
     <body>
     <div id="headline">
         <h1>크리스마스 선물 고르기!</h1>
+    </div>
+    <div id="instruction">
+        <p style="font-size: larger;">사이트 이용법</p><br>
+         1.한명씩 돌아가면서 본인 선물의 한줄평을 입력해서 등록해주세요!<br>
+         2.등록이 모두 끝나면 아래의 섞어섞어! 버튼을 눌러서 순서를 섞어주세요!<br>
+         3.마지막으로 선물 한줄평 공개!<br>
+       
     </div>
     <div id="register">
         <li>
@@ -97,22 +117,24 @@
             ">
         </br>        
     </div>
-    <div id="shuffle">
-        <input id="shufflebutton" class="button button3"
-        value="섞어섞어!" type="button" onclick="
-        shuffle(present);
-        alert('선물이 섞였습니다!')
-        ">
-    </div>
-    <div id="show">
-        <input id="showbutton" class="button button2" 
-        value="선물공개!" type="button" size="50px" onclick="
-        display_array(present);
-            
-
-
-        /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 li로 표시*/
-        ">
+    <div id="shuffleandshow">
+        <div id="shuffle">
+            <input id="shufflebutton" class="button button3"
+            value="섞어섞어!" type="button" onclick="
+            shuffle(present);
+            alert('선물이 섞였습니다!')
+            ">
+        </div>
+        <div id="show">
+            <input id="showbutton" class="button button2" 
+            value="선물 한줄평 공개!" type="button" size="50px" onclick="
+            display_array(present);
+                
+    
+    
+            /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 li로 표시*/
+            ">
+        </div>
     </div>
     <ul id="Result">
 
