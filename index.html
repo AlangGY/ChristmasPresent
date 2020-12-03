@@ -27,14 +27,18 @@
                 font-size: 20px;
             }
             #shuffleandshow {
-                border: black solid 2.5px;
+                border: rgb(0, 0, 0) solid 2.5px;
+
 
             }
             #shuffle {
                 padding: 30px;
+                width: fit-content;
+
             }
             #show {
                 padding : 30px;
+                width:fit-content
             }
             .button {
                 background-color: rgb(163, 36, 36);
@@ -56,6 +60,7 @@
                 text-align: start;
                 border: 1px solid black ;
                 font-size: 20px;
+                margin-bottom: 5px;
 
             }
             #Result {
@@ -71,13 +76,15 @@
             var inputsound = new Audio();
             inputsound.src = "uiclick.wav";
             function input(){
+                var AreYouSure = confirm(document.getElementById('registertext').value+"로 등록하시겠습니까?")
+                if (AreYouSure ==true){
                 let input = document.getElementById('registertext').value;
 
                 present.push(input);
                 inputsound.play();
                 alert('등록완료!');
                 document.getElementById('registertext').value= '';
-                 
+                } 
             }
             var shufflesound = new Audio();
             shufflesound.src = "tile shuffle.wav";
@@ -93,20 +100,19 @@
             
             var displaysound = new Audio();
             displaysound.src ="announce.wav"
+            
             function display_array(array){
-                var e = "<hr/>";
+                var e = '<hr/>';
+                document.getElementById("Result").innerHTML = e;
                 for (var y=0; y<array.length;y++){
-                    e += "선물 " + y + "번 : " + array[y] + "<br/>";
+                    
+                    e = "선물 " + (y+1) + "번 : " + array[y] + "<br/>" ;   
+                    document.getElementById("Result").innerHTML += e; //텍스트로 표기
+                    
                 }
                 displaysound.play();
                 alert('공개합니다!')
-                document.getElementById("Result").innerHTML = e;
                 }
-
-
-            let btnAdd = document.querySelector('registerbutton');
-            let inputtext = document.querySelector('registertext');
-
         </script>      
     </head>
     <body>
@@ -122,7 +128,7 @@
     </div>
     <div id="register">
         <li>
-        선물 등록(한줄평을 써주세요!)
+        선물 등록(내 선물을 표현해주세요!)
         </li>
         </br>
             <input id="registertext" class="text1" size="80" type="text" name="registertext">
@@ -133,27 +139,29 @@
             ">
         </br>        
     </div>
-    <div id="shuffleandshow">
-        <div id="shuffle">
-            <input id="shufflebutton" class="button button3"
-            value="섞어섞어!" type="button" onclick="
-            shuffle(present);
-            ">
+    <div id="contents">
+        <div id="shuffleandshow">
+            <div id="shuffle">
+                <input id="shufflebutton" class="button button3"
+                value="섞어섞어!" type="button" onclick="
+                shuffle(present);
+                ">
+            </div>
+            <div id="show">
+                <input id="showbutton" class="button button2" 
+                value="선물 한줄평 공개!" type="button" size="50px" onclick="
+                display_array(present);
+                    
+        
+        
+                /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 ul로 표시*/
+                ">
+            </div>
         </div>
-        <div id="show">
-            <input id="showbutton" class="button button2" 
-            value="선물 한줄평 공개!" type="button" size="50px" onclick="
-            display_array(present);
-                
+        <div id="Result">
     
-    
-            /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 li로 표시*/
-            ">
         </div>
     </div>
-    <ul id="Result">
-
-    </ul>
  
     </body>
 </html>
