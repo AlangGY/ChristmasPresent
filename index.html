@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>크리스마스 선물 고르기!</title>
+        <meta charset="utf-8">
+        <style>
+            #headline h1 {
+                text-align: center;
+                border: red solid 5px;
+                font-size:80px;
+                background-color: rgb(24, 156, 24);
+                background-clip: border-box;
+
+            }
+            #show {
+                padding-top : 80px;
+            }
+            .button {
+                background-color: rgb(163, 36, 36);
+                border : none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                display: inline-block;
+                font-size: 18px;
+
+            }
+            .button2 {
+                background-color: rgb(12, 150, 65);
+            }
+            .text1 {
+                display: inline-block;
+                text-align: start;
+                border: 1px solid black ;
+
+            }
+
+            
+
+            
+        </style>                
+        <script>
+            let present=[];
+            function input(){
+                let input = document.getElementById('registertext').value;
+                present.push(input);
+                alert('등록완료!');
+                    
+            }
+            function input2(){
+                let input = present.map(presents => '<li>presents</li>').join('/n');
+                present.push(input);
+                alert('등록완료!');
+                    
+            }
+
+
+            let btnAdd = document.querySelector('registerbutton');
+            let inputtext = document.querySelector('registertext');
+
+        </script>      
+    </head>
+    <body>
+    <div id="headline">
+        <h1>크리스마스 선물 고르기!</h1>
+    </div>
+    <div id="register">
+        <li>
+        선물 등록
+        </li>
+    </br>
+            <input id="registertext" class="text1" size="80" type="text" name="registertext">
+            <input id="registerbutton" class="button" type="button" value="등록" onclick="
+                        //버튼을 누르면 배열의 저장
+                        input();
+            ">
+    </div>        
+</br>
+
+    <div id="show">
+        <input id="showbutton" class="button button2" value="선물공개!" type="button" size="50px" onclick="
+        document.querySelectorAll(show.ul).innerHTML = present;
+
+        /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 li로 표시*/
+        ">
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+ 
+    </body>
+</html>
