@@ -12,12 +12,18 @@
                 background-clip: border-box;
 
             }
+            #register {
+                padding: 30px;
+                border: black solid 1px;
+            }
+            #shuffle {
+                padding: 30px;
+            }
             #show {
-                padding-top : 80px;
+                padding : 30px;
             }
             .button {
                 background-color: rgb(163, 36, 36);
-                border : none;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
@@ -28,31 +34,45 @@
             .button2 {
                 background-color: rgb(12, 150, 65);
             }
+            .button3 {
+                background-color: rgb(51, 47, 47);
+            }
             .text1 {
                 display: inline-block;
                 text-align: start;
                 border: 1px solid black ;
+                font-size: 20px;
 
             }
-
-            
-
-            
+            #Result {
+                padding:0;
+                font-weight: bolder;
+                font-size: 30px;
+            }          
         </style>                
         <script>
             let present=[];
+            
             function input(){
                 let input = document.getElementById('registertext').value;
                 present.push(input);
                 alert('등록완료!');
                     
             }
-            function input2(){
-                let input = present.map(presents => '<li>presents</li>').join('/n');
-                present.push(input);
-                alert('등록완료!');
-                    
+            
+            function shuffle(array){
+                for (let i = array.length -1; i>0;i--){
+                    let j = Math.floor(Math.random()*(i+1));
+                    [array[i],array[j]]=[array[j],array[i]];
+                }
             }
+            function display_array(array){
+                var e = "<hr/>";
+                for (var y=0; y<array.length;y++){
+                    e += "선물 " + y + "번 : " + array[y] + "<br/>";
+                }
+                document.getElementById("Result").innerHTML = e;
+                }
 
 
             let btnAdd = document.querySelector('registerbutton');
@@ -68,27 +88,35 @@
         <li>
         선물 등록
         </li>
-    </br>
+        </br>
             <input id="registertext" class="text1" size="80" type="text" name="registertext">
-            <input id="registerbutton" class="button" type="button" value="등록" onclick="
+            <input id="registerbutton" class="button"
+             type="button" value="등록" onclick="
                         //버튼을 누르면 배열의 저장
                         input();
             ">
-    </div>        
-</br>
-
+        </br>        
+    </div>
+    <div id="shuffle">
+        <input id="shufflebutton" class="button button3"
+        value="섞어섞어!" type="button" onclick="
+        shuffle(present);
+        alert('선물이 섞였습니다!')
+        ">
+    </div>
     <div id="show">
-        <input id="showbutton" class="button button2" value="선물공개!" type="button" size="50px" onclick="
-        document.querySelectorAll(show.ul).innerHTML = present;
+        <input id="showbutton" class="button button2" 
+        value="선물공개!" type="button" size="50px" onclick="
+        display_array(present);
+            
+
 
         /*버튼을 누르면 선물 배열이 섞인후, 하단에 선물들 li로 표시*/
         ">
-        <ul>
-            <li>
-
-            </li>
-        </ul>
     </div>
+    <ul id="Result">
+
+    </ul>
  
     </body>
 </html>
