@@ -1,5 +1,3 @@
-let presentDescriptions = [];
-
 const inputSound = new Audio("assets/audio/uiclick.wav");
 const shuffleSound = new Audio("assets/audio/tile shuffle.wav");
 const displaySound = new Audio("assets/audio/announce.wav");
@@ -9,8 +7,10 @@ const $registerButton = document.getElementById("registerButton");
 const $registerInput = document.getElementById("registerText");
 const $shuffleButton = document.getElementById("shuffleButton");
 const $showButton = document.getElementById("showButton");
+const $resultContainer = document.getElementById("resultContainer");
 
 // functions
+let presentDescriptions = [];
 
 function register(value) {
   presentDescriptions.push(value);
@@ -25,13 +25,10 @@ function shuffleArray(array) {
   return result;
 }
 
-function renderDescriptions() {
-  var e = "<hr/>";
-  document.getElementById("Result").innerHTML = e;
-  for (var y = 0; y < presentDescriptions.length; y++) {
-    e = "선물 " + (y + 1) + "번 : " + presentDescriptions[y] + "<br/>";
-    document.getElementById("Result").innerHTML += e; //텍스트로 표기
-  }
+function getDescriptionTemplate() {
+  return presentDescriptions
+    .map((description, index) => `선물${index + 1}번 : ${description}`)
+    .join("<br />");
 }
 
 // event handlers
@@ -54,7 +51,7 @@ function handleShuffle() {
 function handleShowDescription() {
   displaySound.play();
   alert("공개합니다!");
-  renderDescriptions();
+  $resultContainer.innerHTML = getDescriptionTemplate();
 }
 
 function bindEvents() {
