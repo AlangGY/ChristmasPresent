@@ -9,7 +9,7 @@
             
 
             var inputsound = new Audio();
-            inputsound.src = "uiclick.wav";
+            inputsound.src = "assets/audio/uiclick.wav";
             function input(){
                 var AreYouSure = confirm(document.getElementById('registertext').value+"로 등록하시겠습니까?")
                 if (AreYouSure ==true){
@@ -22,7 +22,7 @@
                 } 
             }
             var shufflesound = new Audio();
-            shufflesound.src = "tile shuffle.wav";
+            shufflesound.src = "assets/audio/tile shuffle.wav";
             
             function shuffle(array){
                 for (let i = array.length -1; i>0;i--){
@@ -34,7 +34,7 @@
             }
             
             var displaysound = new Audio();
-            displaysound.src ="announce.wav"
+            displaysound.src ="assets/audio/announce.wav"
             
             function display_array(array){
                 var e = '<hr/>';
