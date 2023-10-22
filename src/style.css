@@ -1,0 +1,86 @@
+:root {
+  font-size: 16px;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="button"] {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#headline {
+  padding: 1rem;
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+#headline h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+#instruction {
+  padding: 1rem;
+
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+#register {
+  padding: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#shuffle {
+  padding: 1rem;
+  width: fit-content;
+}
+#show {
+  padding: 1rem;
+  width: fit-content;
+}
+.button {
+  background-color: rgb(163, 36, 36);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+}
+.button2 {
+  background-color: rgb(12, 150, 65);
+}
+.button3 {
+  background-color: rgb(51, 47, 47);
+}
+.text1 {
+  font-size: 1rem;
+  height: 2rem;
+}
+#resultContainer {
+  padding: 0;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.shadow {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.vstack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
