@@ -1,8 +1,8 @@
 import { PresentBox } from "./PresentBox";
 
-const inputSound = new Audio("assets/audio/uiclick.wav");
-const shuffleSound = new Audio("assets/audio/tile shuffle.wav");
-const displaySound = new Audio("assets/audio/announce.wav");
+const inputSound = new Audio("audio/uiclick.wav");
+const shuffleSound = new Audio("audio/tile shuffle.wav");
+const displaySound = new Audio("audio/announce.wav");
 
 // PresentBox
 const presentBox = new PresentBox();
