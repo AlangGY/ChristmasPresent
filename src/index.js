@@ -7,23 +7,17 @@ const displaySound = new Audio("assets/audio/announce.wav");
 // elements
 const $registerButton = document.getElementById("registerButton");
 const $registerInput = document.getElementById("registerText");
+const $shuffleButton = document.getElementById("shuffleButton");
 
-function handleRegister() {
-  if (confirm(`${$registerInput.value}로 등록하시겠습니까?`)) {
-    present.push($registerInput.value);
-    inputSound.play();
-    alert("등록완료!");
-    $registerInput.value = "";
-  }
-}
+// functions
 
-function shuffle(array) {
+function shuffleArray(array) {
+  const result = [...array];
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [result[i], result[j]] = [result[j], result[i]];
   }
-  shuffleSound.play();
-  alert("선물이 섞였습니다!");
+  return result;
 }
 
 function display_array(array) {
@@ -37,8 +31,26 @@ function display_array(array) {
   alert("공개합니다!");
 }
 
+// event handlers
+
+function handleRegister() {
+  if (confirm(`${$registerInput.value}로 등록하시겠습니까?`)) {
+    present.push($registerInput.value);
+    inputSound.play();
+    alert("등록완료!");
+    $registerInput.value = "";
+  }
+}
+
+function handleShuffle() {
+  present = shuffleArray(present);
+  shuffleSound.play();
+  alert("선물이 섞였습니다!");
+}
+
 function bindEvents() {
   $registerButton.addEventListener("click", handleRegister);
+  $shuffleButton.addEventListener("click", handleShuffle);
 }
 
 function init() {
