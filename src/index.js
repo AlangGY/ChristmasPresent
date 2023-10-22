@@ -1,4 +1,4 @@
-let present = [];
+let presentDescriptions = [];
 
 const inputSound = new Audio("assets/audio/uiclick.wav");
 const shuffleSound = new Audio("assets/audio/tile shuffle.wav");
@@ -10,6 +10,10 @@ const $registerInput = document.getElementById("registerText");
 const $shuffleButton = document.getElementById("shuffleButton");
 
 // functions
+
+function register(value) {
+  presentDescriptions.push(value);
+}
 
 function shuffleArray(array) {
   const result = [...array];
@@ -35,7 +39,7 @@ function display_array(array) {
 
 function handleRegister() {
   if (confirm(`${$registerInput.value}로 등록하시겠습니까?`)) {
-    present.push($registerInput.value);
+    register($registerInput.value);
     inputSound.play();
     alert("등록완료!");
     $registerInput.value = "";
@@ -43,7 +47,7 @@ function handleRegister() {
 }
 
 function handleShuffle() {
-  present = shuffleArray(present);
+  presentDescriptions = shuffleArray(presentDescriptions);
   shuffleSound.play();
   alert("선물이 섞였습니다!");
 }
