@@ -5,16 +5,12 @@ const shuffleSound = new Audio("assets/audio/tile shuffle.wav");
 const displaySound = new Audio("assets/audio/announce.wav");
 
 function input() {
-  const AreYouSure = confirm(
-    document.getElementById("registertext").value + "로 등록하시겠습니까?"
-  );
-  if (AreYouSure == true) {
-    let input = document.getElementById("registertext").value;
-
-    present.push(input);
+  const registerInputEl = document.getElementById("registertext");
+  if (confirm(`${registerInputEl.value}로 등록하시겠습니까?`)) {
+    present.push(registerInputEl.value);
     inputSound.play();
     alert("등록완료!");
-    document.getElementById("registertext").value = "";
+    registerInputEl.value = "";
   }
 }
 
