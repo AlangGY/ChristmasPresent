@@ -8,6 +8,7 @@ const displaySound = new Audio("assets/audio/announce.wav");
 const $registerButton = document.getElementById("registerButton");
 const $registerInput = document.getElementById("registerText");
 const $shuffleButton = document.getElementById("shuffleButton");
+const $showButton = document.getElementById("showButton");
 
 // functions
 
@@ -24,15 +25,13 @@ function shuffleArray(array) {
   return result;
 }
 
-function display_array(array) {
+function renderDescriptions() {
   var e = "<hr/>";
   document.getElementById("Result").innerHTML = e;
-  for (var y = 0; y < array.length; y++) {
-    e = "선물 " + (y + 1) + "번 : " + array[y] + "<br/>";
+  for (var y = 0; y < presentDescriptions.length; y++) {
+    e = "선물 " + (y + 1) + "번 : " + presentDescriptions[y] + "<br/>";
     document.getElementById("Result").innerHTML += e; //텍스트로 표기
   }
-  displaySound.play();
-  alert("공개합니다!");
 }
 
 // event handlers
@@ -52,9 +51,16 @@ function handleShuffle() {
   alert("선물이 섞였습니다!");
 }
 
+function handleShowDescription() {
+  displaySound.play();
+  alert("공개합니다!");
+  renderDescriptions();
+}
+
 function bindEvents() {
   $registerButton.addEventListener("click", handleRegister);
   $shuffleButton.addEventListener("click", handleShuffle);
+  $showButton.addEventListener("click", handleShowDescription);
 }
 
 function init() {
