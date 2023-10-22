@@ -4,13 +4,16 @@ const inputSound = new Audio("assets/audio/uiclick.wav");
 const shuffleSound = new Audio("assets/audio/tile shuffle.wav");
 const displaySound = new Audio("assets/audio/announce.wav");
 
-function input() {
-  const registerInputEl = document.getElementById("registertext");
-  if (confirm(`${registerInputEl.value}로 등록하시겠습니까?`)) {
-    present.push(registerInputEl.value);
+// elements
+const $registerButton = document.getElementById("registerButton");
+const $registerInput = document.getElementById("registerText");
+
+function handleRegister() {
+  if (confirm(`${$registerInput.value}로 등록하시겠습니까?`)) {
+    present.push($registerInput.value);
     inputSound.play();
     alert("등록완료!");
-    registerInputEl.value = "";
+    $registerInput.value = "";
   }
 }
 
@@ -33,3 +36,13 @@ function display_array(array) {
   displaySound.play();
   alert("공개합니다!");
 }
+
+function bindEvents() {
+  $registerButton.addEventListener("click", handleRegister);
+}
+
+function init() {
+  bindEvents();
+}
+
+init();
