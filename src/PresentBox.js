@@ -1,6 +1,6 @@
-const { functions } = window;
+import { shuffleArray } from "./functions";
 
-class PresentBox {
+export class PresentBox {
   presents = [];
 
   shufflePresent() {
@@ -17,5 +17,3 @@ class PresentBox {
       .join("<br />");
   }
 }
-
-window.PresentBox = PresentBox;
