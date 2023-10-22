@@ -1,5 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+
 :root {
   font-size: 16px;
+  font-family: "Gaseok One", sans-serif;
+  font-weight: 300;
+  --color-green: rgb(51, 180, 100);
+  --color-green-bright: rgb(183, 228, 200);
+  --color-red: rgb(248, 95, 95);
+  --color-red-bright: rgb(239, 198, 198);
 }
 
 html {
@@ -7,80 +15,157 @@ html {
   font-size: 16px;
 }
 
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-green),
+    var(--color-green) 10px,
+    var(--color-green-bright) 10px,
+    var(--color-green-bright) 20px
+  );
+}
+
 button {
   border: none;
-  outline: none;
   cursor: pointer;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-family: "Gaseok One", sans-serif;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.2);
 }
 
-input[type="button"] {
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.6;
+}
+
+input[type="text"] {
   border: none;
   outline: none;
-  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1px 0 black;
 }
 
-#headline {
+input[type="text"]:focus {
+  box-shadow: 0 0 4px 0 var(--color-red);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background: rgb(254, 255, 254);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px 0 var(--color-green);
   padding: 1rem;
-  margin-bottom: 5px;
-  font-weight: bolder;
 }
 
-#headline h1 {
-  font-size: 60px;
+.christmas-block-outer {
+  border-radius: 1rem;
+  padding: 0.25rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-red),
+    var(--color-red) 10px,
+    var(--color-red-bright) 10px,
+    var(--color-red-bright) 20px
+  );
+}
+
+.christmas-block-inner {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: "Moirai One", sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
   text-align: center;
+  text-shadow: var(--color-red-bright) 2px 1px 1px;
+  color: var(--color-red);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: var(--color-red-bright) 2px 1px 1px;
+  color: var(--color-red);
 }
 
 #instruction {
   padding: 1rem;
-
-  margin-bottom: 5px;
-  font-weight: bolder;
+  background: white;
+  border-radius: 0.5rem;
 }
+
+#instruction ul {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
 #register {
   padding: 1rem;
-  margin-bottom: 5px;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+#shuffleandshow {
+  padding: 1rem;
+  border-radius: 0.5rem;
   font-weight: bold;
   font-size: 20px;
 }
 
-#shuffle {
-  padding: 1rem;
-  width: fit-content;
-}
-#show {
-  padding: 1rem;
-  width: fit-content;
-}
-.button {
-  background-color: rgb(163, 36, 36);
-  color: white;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  display: inline-block;
-  font-size: 18px;
-}
-.button2 {
-  background-color: rgb(12, 150, 65);
-}
-.button3 {
-  background-color: rgb(51, 47, 47);
-}
-.text1 {
-  font-size: 1rem;
-  height: 2rem;
-}
 #resultContainer {
   padding: 0;
-  font-weight: bolder;
-  font-size: 30px;
 }
 
 .shadow {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.2);
 }
 
 .vstack {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.hstack {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-red {
+  background-color: var(--color-red);
+}
+
+.bg-green {
+  background-color: var(--color-green);
 }
